@@ -1,0 +1,15 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-std=c++17",
+      "-o",
+      "temp_code",
+      "temp_code.cpp"
+    ],
+    "directory": "/home/kalash/Projects/VSC Dev/cppshield",
+    "file": "/home/kalash/Projects/VSC Dev/cppshield/temp_code.cpp",
+    "output": "/home/kalash/Projects/VSC Dev/cppshield/temp_code"
+  }
+]
