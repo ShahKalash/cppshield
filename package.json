@@ -10,18 +10,17 @@
   },
   "categories": ["Other"],
   "icon": "images/logo.png",
-  "activationEvents": [],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:cpp",
+    "onStartupFinished"
+  ],
   "contributes": {
     "commands": [
       {
         "command": "cppshield.analyzeCode",
-        "title": "Analyze C++ Code"
+        "title": "Cpp-Shield"
       }
-    ],
-    "activationEvents": [
-      "onLanguage:cpp",
-      "onCommand:cppshield.analyzeCode"
     ]
   },
   "scripts": {

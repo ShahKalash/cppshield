@@ -8,11 +8,12 @@ It highlights **uninitialized variables, deprecated functions, implicit conversi
 ✅ **Detects various C++ warnings and errors** using `clang-tidy` and `-Wall`.  
 ✅ **Highlights error lines in real time** inside VS Code.  
 ✅ **Works seamlessly in any C++ project**.  
-✅ **No need for compile_commands.json**, works without CMake.
+✅ **No need for compile_commands.json**, works without CMake.  
+✅ **Starts automatically when a C++ file is opened**, but if it doesn’t, open the **Command Palette** (`Ctrl+Shift+P`) and run `CppShield`.
 
 ---
 
-## **🔍 Errors/Warnings Detected (`-Wall`)**
+## **🔍 Errors/Warnings Detected (`-Wall`)
 
 CppShield detects the following issues in C++ code:  
 ✔ **Uninitialized Variables**  
@@ -88,6 +89,7 @@ You can install CppShield directly from the VS Code Marketplace once published.
 1. **Open a C++ file** (`.cpp`) in VS Code.
 2. **Write code**, and CppShield will **highlight errors and warnings in real time**.
 3. If errors are not highlighted, ensure `clang-tidy` is installed and accessible.
+4. **CppShield should start automatically**, but if it doesn’t, open the **Command Palette** (`Ctrl+Shift+P`) and select `CppShield`.
 
 ---
 

@@ -41,6 +41,7 @@ const fs = __importStar(require("fs"));
 const os = __importStar(require("os"));
 const path = __importStar(require("path"));
 function activate(context) {
+    console.log("CppShield Extension Activated! 🚀");
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('cpp-analyzer');
     vscode.workspace.onDidChangeTextDocument(event => {
         if (event.document.languageId === 'cpp') {

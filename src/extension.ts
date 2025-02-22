@@ -5,6 +5,7 @@ import * as os from 'os';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
+    console.log("CppShield Extension Activated! 🚀");
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('cpp-analyzer');
 
     vscode.workspace.onDidChangeTextDocument(event => {
