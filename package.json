@@ -2,13 +2,14 @@
   "name": "cppshield",
   "displayName": "cppshield",
   "description": "cpp code helper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "KalashShah",
   "repository": "https://github.com/microsoft/vscode-extension-samples/helloworld-sample",
   "engines": {
     "vscode": "^1.51.0"
   },
   "categories": ["Other"],
+  "icon": "images/logo.png",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -28,6 +29,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
+
   "devDependencies": {
     "@types/node": "^8.10.25",
     "@types/vscode": "^1.51.0",
