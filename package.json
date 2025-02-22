@@ -2,9 +2,9 @@
   "name": "cppshield",
   "displayName": "cppshield",
   "description": "cpp code helper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "KalashShah",
-  "repository": "https://github.com/microsoft/vscode-extension-samples/helloworld-sample",
+  "repository": "https://github.com/ShahKalash/cppshield",
   "engines": {
     "vscode": "^1.51.0"
   },
