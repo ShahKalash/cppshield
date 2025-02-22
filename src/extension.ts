@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(diagnosticCollection);
 }
 
-// ✅ Analyze C++ Code with Clang-Tidy (No compile_commands.json Needed)
+// Analyze C++ Code with Clang-Tidy (No compile_commands.json Needed)
 function analyzeCode(document: vscode.TextDocument, diagnosticCollection: vscode.DiagnosticCollection) {
     const code = document.getText();
     const tempFilePath = path.join(os.tmpdir(), 'temp_code.cpp');
@@ -39,12 +39,14 @@ function analyzeCode(document: vscode.TextDocument, diagnosticCollection: vscode
 
     const clangTidyPath = 'clang-tidy';
 
-    // 🚀 Using --extra-arg to provide manual compilation flags (No compile_commands.json needed)
-    const command = `${clangTidyPath} ${tempFilePath} --checks="clang-analyzer-core.uninitialized.*" --extra-arg=-std=c++17 --extra-arg=-Wall --extra-arg=-Wextra --extra-arg=-I/usr/include/c++/11`;
+    //Using --extra-arg to provide manual compilation flags (No compile_commands.json needed)
+    // const command = `${clangTidyPath} ${tempFilePath} --checks="clang-analyzer-core.uninitialized.*" --extra-arg=-std=c++17 --extra-arg=-Wall --extra-arg=-Wextra --extra-arg=-I/usr/include/c++/11`;
+    const command = `${clangTidyPath} ${tempFilePath} --checks="clang-analyzer-core.uninitialized.*" --extra-arg=-std=c++17 --extra-arg=-Wall --extra-arg=-Wextra --extra-arg=-I/usr/include/c++/11 --extra-arg=-DONLINE_JUDGE`;
+
 
     cp.exec(command, (err, stdout, stderr) => {
-        console.log("📜 Clang-Tidy Output:\n", stdout);
-        console.log("⚠️ Clang-Tidy Error Output:\n", stderr);
+        console.log("Clang-Tidy Output:\n", stdout);
+        console.log("Clang-Tidy Error Output:\n", stderr);
 
         vscode.window.showInformationMessage("Clang-Tidy Output: " + stdout);
 
@@ -57,11 +59,11 @@ function analyzeCode(document: vscode.TextDocument, diagnosticCollection: vscode
         const lines = stdout.split('\n');
 
         for (const line of lines) {
-            console.log(`📌 Parsing Line: ${line}`);  // DEBUG LINE
+            console.log(` Parsing Line: ${line}`);  // DEBUG LINE
 
             const match = line.match(/:(\d+):(\d+): (warning|error): (.*)/);
             if (match) {
-                console.log(`✅ Matched Warning/Error at ${match[1]}:${match[2]} → ${match[4]}`); // DEBUG MATCH
+                console.log(` Matched Warning/Error at ${match[1]}:${match[2]} → ${match[4]}`); // DEBUG MATCH
 
                 const lineNum = parseInt(match[1]) - 1; // Convert to 0-based index
                 const colNum = parseInt(match[2]) - 1;
@@ -74,7 +76,7 @@ function analyzeCode(document: vscode.TextDocument, diagnosticCollection: vscode
         }
 
         diagnosticCollection.set(document.uri, diagnostics);
-        console.log(`✅ ${diagnostics.length} diagnostics added.`);
+        console.log(` ${diagnostics.length} diagnostics added.`);
     });
 }
 
