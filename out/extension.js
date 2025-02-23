@@ -43,9 +43,9 @@ const path = __importStar(require("path"));
 function activate(context) {
     console.log("CppShield Extension Activated! 🚀");
     let diagnosticCollection = vscode.languages.createDiagnosticCollection('cpp-analyzer');
-    vscode.workspace.onDidChangeTextDocument(event => {
-        if (event.document.languageId === 'cpp') {
-            analyzeCode(event.document, diagnosticCollection);
+    vscode.workspace.onDidSaveTextDocument(document => {
+        if (document.languageId === 'cpp') {
+            analyzeCode(document, diagnosticCollection);
         }
     });
     vscode.workspace.onDidOpenTextDocument(document => {
@@ -75,9 +75,9 @@ function analyzeCode(document, diagnosticCollection) {
     cp.exec(command, (err, stdout, stderr) => {
         console.log("Clang-Tidy Output:\n", stdout);
         console.log("Clang-Tidy Error Output:\n", stderr);
-        vscode.window.showInformationMessage("Clang-Tidy Output: " + stdout);
+        // vscode.window.showInformationMessage("Clang-Tidy Output: " + stdout);
         if (err) {
-            vscode.window.showErrorMessage(`Clang-Tidy Error: ${stderr || err.message}`);
+            // vscode.window.showErrorMessage(`Clang-Tidy Error: ${stderr || err.message}`);
             return;
         }
         const diagnostics = [];
